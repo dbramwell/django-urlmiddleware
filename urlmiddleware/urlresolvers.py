@@ -44,7 +44,7 @@ class MiddlewareRegexURLResolver(RegexURLResolver):
             for pattern in self.url_patterns:
                 try:
                     sub_match = pattern.resolve(new_path)
-                except MiddlewareResolver404, e:
+                except MiddlewareResolver404 as e:
                     sub_tried = e.args[0].get('tried')
                     if sub_tried is not None:
                         tried.extend([[pattern] + t for t in sub_tried])
